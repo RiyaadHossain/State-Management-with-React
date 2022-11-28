@@ -16,8 +16,10 @@ const ProductProvider = ({ children }) => {
             .catch(() => dispatch({ type: productAction.FETCHING_FAILED }))
     }, [])
 
+    const value = {state, dispatch}
+
     return (
-        <PRODUCT_CONTEXT.Provider value={state}>
+        <PRODUCT_CONTEXT.Provider value={value}>
             {children}
         </PRODUCT_CONTEXT.Provider>
     );
