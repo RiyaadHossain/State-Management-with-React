@@ -19,13 +19,13 @@ export const reducer = (state, action) => {
         case productAction.ADD_TO_CARD:
             return { ...state, carts: [...state.carts, action.payload] } // Tricky
         case productAction.REMOVE_FROM_CARD:
-            const remaining = state.carts.filter(product => product._id !== action.payload._id) // Tricky
+            const remaining = state.carts?.filter(product => product._id !== action.payload._id) // Tricky
             return { ...state, carts: remaining }
         case productAction.ADD_TO_WISHLIST:
-            return  {...state, wishlist: [...state.wishlist, action.payload]}
+            return { ...state, wishlist: [...state.wishlist, action.payload] }
         case productAction.REMOVE_FROM_WISHLIST:
-            const remainingWish = state.wishlist.filter(product => product._id !== action.payload.product._id);
-            return { ...state, wishlist: remainingWish } 
+            const remainingWish = state.wishlist?.filter(product => product._id !== action.payload._id);
+            return { ...state, wishlist: remainingWish }
         default:
             return state
     }
